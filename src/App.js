@@ -93,7 +93,7 @@ function App() {
     <div className="App">
       <h1>Candy Memory</h1>
       <h3 style={currentStyle}>{`${currentPlayer.player}'s turn`}</h3>
-      <h3><span style={{ color: "#E3637B"}}>{points[0]}</span>:<span style={{color: "#C69559"}}>{points[1]}</span></h3>
+      <h3><span style={{ color: "#E3637B"}}>{points[1]}</span>:<span style={{color: "#C69559"}}>{points[0]}</span></h3>
       <Board cards={cards} flipCard={onFlip} />
       <div className={winner ? 'winner disp': 'winner'} style ={winnerbg} >
         <p style ={{fontSize:"56px"}}>GAME OVER</p>
