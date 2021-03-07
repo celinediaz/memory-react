@@ -59,7 +59,7 @@ function App() {
     if (flippedCards[0].image === flippedCards[1].image) {
       let player1=points[0]++;
       let player2=points[1]++;
-      currentPlayer.player === "player 1" ? setPoints([player1, points[1]]) : setPoints([points[0], player2]) ;
+      currentPlayer.player === "player 1" ? setPoints([points[0], player2]) : setPoints([player1, points[1]]) ;
     } else {
       cards[refToFlipped[0]].face = false;
       cards[refToFlipped[1]].face = false;
@@ -93,7 +93,7 @@ function App() {
     <div className="App">
       <h1>Candy Memory</h1>
       <h3 style={currentStyle}>{`${currentPlayer.player}'s turn`}</h3>
-      <h3><span style={{ color: "#E3637B"}}>{points[1]}</span>:<span style={{color: "#C69559"}}>{points[0]}</span></h3>
+      <h3><span style={{ color: "#E3637B"}}>{points[0]}</span>:<span style={{color: "#C69559"}}>{points[1]}</span></h3>
       <Board cards={cards} flipCard={onFlip} />
       <div className={winner ? 'winner disp': 'winner'} style ={winnerbg} >
         <p style ={{fontSize:"56px"}}>GAME OVER</p>
