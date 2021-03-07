@@ -1,38 +1,62 @@
+@font-face {
+  font-family: OstrichSans;
+  src: url(./OstrichSans-Heavy.otf);
+}
+h1{
+  font-family: OstrichSans;
+  color: #724C4C;
+  font-size: 10vw;
+  margin: 2px 10px;
+}
+body{
+  background-color: #FFE8E8;
+}
 .App {
   text-align: center;
+  margin:2vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container{
+  display:grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(4, 1fr);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-container {
+	perspective: 1000px;
+  width: 8vw;
+  height: 8vw;
+  margin: 5px 0px;
+}
+.card-container.clicked .card {
+		transform: rotateY(180deg);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card-container .front, .back {
+	width: 8vw;
+	height: 8vw;
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.card {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+	position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0; left: 0;
+}
+
+.front {
+	z-index: 2;
+  background-color: #CABFEF;
+	transform: rotateY(0deg);
+}
+
+.back {
+	transform: rotateY(180deg);
+  background-color: pink;
 }
