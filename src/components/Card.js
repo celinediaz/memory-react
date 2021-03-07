@@ -7,7 +7,7 @@ const Card = ({image, face, onclick, index}) => {
                 <div className="front">
                 </div>
                 <div className="back">
-                    <img src={image}/>
+                    <img src={image} alt ="card"/>
                 </div>
             </div>
         </div>

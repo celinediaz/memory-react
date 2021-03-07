@@ -4,8 +4,10 @@ import './App.css';
 import Board from './components/Board';
 import PropTypes from 'prop-types';
 let elements = [{ image: pic, face: false }, { image: pic2, face: false }, { image: pic3, face: false }, { image: pic4, face: false }, { image: pic5, face: false }, { image: pic6, face: false }, { image: pic7, face: false }, { image: pic8, face: false }, { image: pic9, face: false }, { image: pic10, face: false }, { image: pic11, face: false }, { image: pic12, face: false }, { image: pic13, face: false }, { image: pic14, face: false }, { image: pic15, face: false }, { image: pic16, face: false }, { image: pic, face: false }, { image: pic2, face: false }, { image: pic3, face: false }, { image: pic4, face: false }, { image: pic5, face: false }, { image: pic6, face: false }, { image: pic7, face: false }, { image: pic8, face: false }, { image: pic9, face: false }, { image: pic10, face: false }, { image: pic11, face: false }, { image: pic12, face: false }, { image: pic13, face: false }, { image: pic14, face: false }, { image: pic15, face: false }, { image: pic16, face: false }];
-let players = [{player: "player 1", turn: true, color: "#E3637B"}, {player: "player 2", turn: false, color: "#C69559"}] 
-
+let players = [{ player: "player 1", color: "#E3637B" }, { player: "player 2", color: "#C69559" }]
+let points = [0, 0];
+let winner = false;
+let background = "rgba(0,0,0, 0.45)"
 // fisher & yates shuffle
 function shuffle(array) {
   let currentIndex = array.length, temporaryValue, randomIndex;
@@ -22,7 +24,6 @@ shuffle(elements);
 
 let refToFlipped = [];
 let flippedCards = [];
-let points = [0, 0];
 function App() {
 
   const [cards, setFace] = useState(elements);
@@ -35,13 +36,15 @@ function App() {
       setFlipped([...flipped, cards[index]]);
       flippedCards.push(cards[index]);
       refToFlipped.push(index);
-      if (flippedCards.length === 2) {
-        console.log(flippedCards);
+      if (flippedCards.length === 2 && refToFlipped[0] !== refToFlipped[1]) {
         await checkIfPair();
         setFlipped([]);
-        currentPlayer==players[0] ? setPlayer(players[1]) : setPlayer(players[0]);
-      }
-      else {
+        winner = checkWinner();
+        currentPlayer === players[0] ? setPlayer(players[1]) : setPlayer(players[0]);
+      }else if(refToFlipped[0] === refToFlipped[1]){
+        console.log("don't select the same card...")
+        refToFlipped.pop();
+        flippedCards.pop();
       }
       setFace(cards);
     }
@@ -51,17 +54,27 @@ function App() {
     await new Promise(resolve => {
       setTimeout(resolve, 1000);
     });
-    if (flippedCards[0].image === flippedCards[1].image && refToFlipped[0] !== refToFlipped[1]) {
-      console.log("match");
-      currentPlayer.player === "player 1" ? points[0]++ : points[1]++ ;
+    if (flippedCards[0].image === flippedCards[1].image) {
+      currentPlayer.player === "player 1" ? points[0]++ : points[1]++;
     } else {
-      console.log("no match");
-      console.log(refToFlipped);
       cards[refToFlipped[0]].face = false;
       cards[refToFlipped[1]].face = false;
     }
     refToFlipped = [];
     flippedCards = [];
+  }
+
+  const checkWinner = () => {
+    if (cards.every(card => card.face === true)) {
+      if (points[0] > points[1]) {
+        background = "rgba(155,18,44, 0.45)";
+        return "Player 1 won";
+      } else if (points[1] > points[0]) {
+        background = "rgba(121,72,13, 0.45)";
+        return "Player 2 won";
+      }
+      return "There was a tie";
+    }
   }
 
   const currentStyle = {
@@ -74,17 +87,27 @@ function App() {
     color: "#C69559"
   }
 
+  const winnerbg ={
+    backgroundColor: background
+  }
+
+
   return (
     <div className="App">
       <h1>Candy Memory</h1>
       <h3 style={currentStyle}>{`${currentPlayer.player}'s turn`}</h3>
       <h3><span style={style1}>{points[0]}</span>:<span style={style2}>{points[1]}</span></h3>
       <Board cards={cards} flipCard={onFlip} />
+      <div className={winner ? 'winner disp': 'winner'} style ={winnerbg} >
+        <p style ={{fontSize:"56px"}}>GAME OVER</p>
+        <p>{winner}</p>
+        <button onClick = {() => window.location.reload()}>Play again!</button>
+      </div>
     </div>
   )
 }
 App.propTypes = {
-  cards: PropTypes.array.isRequired
+  cards: PropTypes.array
 }
 
 export default App;

@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import Card from './Card';
 import PropTypes from 'prop-types';
 const Board = ({cards, flipCard}) => {

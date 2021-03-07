@@ -6,7 +6,10 @@ h1{
   font-family: OstrichSans;
   color: #724C4C;
   font-size: 10vw;
-  margin: 2px 10px;
+  margin: 3px 0px;
+}
+h3{
+  margin: 5px 0px;
 }
 body{
   background-color: #FFE8E8;
@@ -59,4 +62,41 @@ body{
 .back {
 	transform: rotateY(180deg);
   background-color: pink;
+}
+
+.winner {
+  display: none;
+  position: fixed;
+  top: 0;left: 0;right: 0;bottom: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-size: 44px;
+}
+.winner > button {
+  background-color: rgb(43, 43, 43);
+}
+.winner > button:hover {
+  background-color: rgb(17, 17, 17);
+}
+.winner > p {
+  font-family: OstrichSans;
+  margin: 5px;
+}
+.disp {
+  display: flex;
+}
+button {
+  color: white;
+  background-color: #383838;
+  border-radius: 2rem;
+  border: 2px solid transparent;
+  padding: 0.2rem 1rem;
+  font-size: 1.5rem;
+  margin: 10px;
+  outline: none;
+}
+button:hover {
+  background-color: #272626;
 }
