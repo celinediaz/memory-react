@@ -103,6 +103,7 @@ function App() {
         <p>{winner}</p>
         <button onClick = {() => window.location.reload()}>Play again!</button>
       </div>
+      <div className="foot">Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </div>
   )
 }

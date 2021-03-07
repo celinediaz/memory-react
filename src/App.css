@@ -100,3 +100,15 @@ button {
 button:hover {
   background-color: #272626;
 }
+.foot{
+  margin-top: 10px;
+}
+.foot > a{
+  color: #724C4C;
+}
+.foot > a:visited{
+  color: #472a2a;
+}
+.foot > a:hover{
+  color: #775a5a;
+}
