@@ -31,8 +31,6 @@ function App() {
   const [refToFlipped, setRef] = useState([]);
   const [flippedCards, setCards] = useState([]);
 
-
-
   const onFlip = async (index) => {
     if (refToFlipped.length < 2) {
       cards[index].face = true;
@@ -87,23 +85,16 @@ function App() {
   const currentStyle = {
     color: currentPlayer.color
   }
-  const style1 = {
-    color: "#E3637B"
-  }
-  const style2 = {
-    color: "#C69559"
-  }
 
   const winnerbg ={
     backgroundColor: background
   }
 
-
   return (
     <div className="App">
       <h1>Candy Memory</h1>
       <h3 style={currentStyle}>{`${currentPlayer.player}'s turn`}</h3>
-      <h3><span style={style1}>{points[0]}</span>:<span style={style2}>{points[1]}</span></h3>
+      <h3><span style={{ color: "#E3637B"}}>{points[0]}</span>:<span style={{color: "#C69559"}}>{points[1]}</span></h3>
       <Board cards={cards} flipCard={onFlip} />
       <div className={winner ? 'winner disp': 'winner'} style ={winnerbg} >
         <p style ={{fontSize:"56px"}}>GAME OVER</p>
