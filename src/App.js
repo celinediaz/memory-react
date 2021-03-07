@@ -5,9 +5,9 @@ import Board from './components/Board';
 import PropTypes from 'prop-types';
 let elements = [{ image: pic, face: false }, { image: pic2, face: false }, { image: pic3, face: false }, { image: pic4, face: false }, { image: pic5, face: false }, { image: pic6, face: false }, { image: pic7, face: false }, { image: pic8, face: false }, { image: pic9, face: false }, { image: pic10, face: false }, { image: pic11, face: false }, { image: pic12, face: false }, { image: pic13, face: false }, { image: pic14, face: false }, { image: pic15, face: false }, { image: pic16, face: false }, { image: pic, face: false }, { image: pic2, face: false }, { image: pic3, face: false }, { image: pic4, face: false }, { image: pic5, face: false }, { image: pic6, face: false }, { image: pic7, face: false }, { image: pic8, face: false }, { image: pic9, face: false }, { image: pic10, face: false }, { image: pic11, face: false }, { image: pic12, face: false }, { image: pic13, face: false }, { image: pic14, face: false }, { image: pic15, face: false }, { image: pic16, face: false }];
 let players = [{ player: "player 1", color: "#E3637B" }, { player: "player 2", color: "#C69559" }]
-let points = [0, 0];
 let winner = false;
-let background = "rgba(0,0,0, 0.45)"
+let background = "rgba(0,0,0, 0.45)";
+
 // fisher & yates shuffle
 function shuffle(array) {
   let currentIndex = array.length, temporaryValue, randomIndex;
@@ -22,13 +22,16 @@ function shuffle(array) {
 }
 shuffle(elements);
 
-let refToFlipped = [];
-let flippedCards = [];
 function App() {
 
   const [cards, setFace] = useState(elements);
   const [flipped, setFlipped] = useState([]);
   const [currentPlayer, setPlayer] = useState(players[0]);
+  const [points, setPoints] = useState([0, 0]);
+  const [refToFlipped, setRef] = useState([]);
+  const [flippedCards, setCards] = useState([]);
+
+
 
   const onFlip = async (index) => {
     if (refToFlipped.length < 2) {
@@ -46,6 +49,7 @@ function App() {
         refToFlipped.pop();
         flippedCards.pop();
       }
+      
       setFace(cards);
     }
   }
@@ -55,13 +59,16 @@ function App() {
       setTimeout(resolve, 1000);
     });
     if (flippedCards[0].image === flippedCards[1].image) {
-      currentPlayer.player === "player 1" ? points[0]++ : points[1]++;
+      console.log(points);
+      let player1=points[0]++;
+      let player2=points[1]++;
+      currentPlayer.player === "player 1" ? setPoints([player1, points[1]]) : setPoints([points[0], player2]) ;
     } else {
       cards[refToFlipped[0]].face = false;
       cards[refToFlipped[1]].face = false;
     }
-    refToFlipped = [];
-    flippedCards = [];
+    setRef([]);
+    setCards([]);
   }
 
   const checkWinner = () => {
