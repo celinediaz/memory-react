@@ -57,7 +57,6 @@ function App() {
       setTimeout(resolve, 1000);
     });
     if (flippedCards[0].image === flippedCards[1].image) {
-      console.log(points);
       let player1=points[0]++;
       let player2=points[1]++;
       currentPlayer.player === "player 1" ? setPoints([player1, points[1]]) : setPoints([points[0], player2]) ;
