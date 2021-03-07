@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/memory-react/static/css/main.d45262de.chunk.css",
+    "main.js": "/memory-react/static/js/main.b3a84d86.chunk.js",
+    "main.js.map": "/memory-react/static/js/main.b3a84d86.chunk.js.map",
+    "runtime-main.js": "/memory-react/static/js/runtime-main.e671c30a.js",
+    "runtime-main.js.map": "/memory-react/static/js/runtime-main.e671c30a.js.map",
+    "static/js/2.7756d933.chunk.js": "/memory-react/static/js/2.7756d933.chunk.js",
+    "static/js/2.7756d933.chunk.js.map": "/memory-react/static/js/2.7756d933.chunk.js.map",
+    "static/js/3.ad1f95ec.chunk.js": "/memory-react/static/js/3.ad1f95ec.chunk.js",
+    "static/js/3.ad1f95ec.chunk.js.map": "/memory-react/static/js/3.ad1f95ec.chunk.js.map",
+    "index.html": "/memory-react/index.html",
+    "static/css/main.d45262de.chunk.css.map": "/memory-react/static/css/main.d45262de.chunk.css.map",
+    "static/js/2.7756d933.chunk.js.LICENSE.txt": "/memory-react/static/js/2.7756d933.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/memory-react/static/media/OstrichSans-Heavy.3a837cde.otf",
+    "static/media/cherry.30d1cfb9.svg": "/memory-react/static/media/cherry.30d1cfb9.svg",
+    "static/media/chocolate.c126d5ce.svg": "/memory-react/static/media/chocolate.c126d5ce.svg",
+    "static/media/churro.e3a8448f.svg": "/memory-react/static/media/churro.e3a8448f.svg",
+    "static/media/cookie.79c932d1.svg": "/memory-react/static/media/cookie.79c932d1.svg",
+    "static/media/crepe.cc793208.svg": "/memory-react/static/media/crepe.cc793208.svg",
+    "static/media/donut.5f092f02.svg": "/memory-react/static/media/donut.5f092f02.svg",
+    "static/media/gingerbread.15389257.svg": "/memory-react/static/media/gingerbread.15389257.svg",
+    "static/media/gummy-bear.f788db3e.svg": "/memory-react/static/media/gummy-bear.f788db3e.svg",
+    "static/media/gummy.6c5c31c3.svg": "/memory-react/static/media/gummy.6c5c31c3.svg",
+    "static/media/jam.c4e6b654.svg": "/memory-react/static/media/jam.c4e6b654.svg",
+    "static/media/jelly-beans.9bffb7de.svg": "/memory-react/static/media/jelly-beans.9bffb7de.svg",
+    "static/media/lollipop.17fc0f1d.svg": "/memory-react/static/media/lollipop.17fc0f1d.svg",
+    "static/media/marshmallow-choco.ed80cac5.svg": "/memory-react/static/media/marshmallow-choco.ed80cac5.svg",
+    "static/media/marshmallow.9d5bd37b.svg": "/memory-react/static/media/marshmallow.9d5bd37b.svg",
+    "static/media/peanut-butter.3e89e071.svg": "/memory-react/static/media/peanut-butter.3e89e071.svg",
+    "static/media/pie.142e27ba.svg": "/memory-react/static/media/pie.142e27ba.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e671c30a.js",
+    "static/js/2.7756d933.chunk.js",
+    "static/css/main.d45262de.chunk.css",
+    "static/js/main.b3a84d86.chunk.js"
+  ]
+}
