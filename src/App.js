@@ -7,7 +7,7 @@ let elements = [{ image: pic, face: false }, { image: pic2, face: false }, { ima
 let players = [{ player: "player 1", color: "#E3637B" }, { player: "player 2", color: "#C69559" }]
 let winner = false;
 let background = "rgba(0,0,0, 0.45)";
-
+let scores = [0,0];
 // fisher & yates shuffle
 function shuffle(array) {
   let currentIndex = array.length, temporaryValue, randomIndex;
@@ -47,7 +47,6 @@ function App() {
         refToFlipped.pop();
         flippedCards.pop();
       }
-      
       setFace(cards);
     }
   }
@@ -57,9 +56,8 @@ function App() {
       setTimeout(resolve, 1000);
     });
     if (flippedCards[0].image === flippedCards[1].image) {
-      let player1=points[0]++;
-      let player2=points[1]++;
-      currentPlayer.player === "player 1" ? setPoints([points[0], player2]) : setPoints([player1, points[1]]) ;
+      scores = (currentPlayer.player === "player 1" ? [++scores[0], scores[1]] : [scores[0], ++scores[1]]);
+      setPoints(scores);
     } else {
       cards[refToFlipped[0]].face = false;
       cards[refToFlipped[1]].face = false;
@@ -70,10 +68,11 @@ function App() {
 
   const checkWinner = () => {
     if (cards.every(card => card.face === true)) {
-      if (points[0] > points[1]) {
+      console.log(scores)
+      if (scores[0] > scores[1]) {
         background = "rgba(155,18,44, 0.45)";
         return "Player 1 won";
-      } else if (points[1] > points[0]) {
+      } else if (scores[1] > scores[0]) {
         background = "rgba(121,72,13, 0.45)";
         return "Player 2 won";
       }
